@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-form PIL import Image
+from PIL import Image
 
 # Page Title
 st.set_page_config(page_title="Brain Tumor Detection", page_icon="🧠")
