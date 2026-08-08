@@ -168,11 +168,6 @@ for class_name, probability in zip(class_names, probabilities):
 st.success(f"Prediction: {predicted_class}")
 st.write(f"Confidence: {confidence:.2f}%")
 
-    # Analysis details
-    analysis_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
-    file_name = uploaded_file.name
-
-
     # =====================================================
     # RESULT
     # =====================================================
