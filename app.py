@@ -7,68 +7,25 @@ from PIL import Image
 # PAGE CONFIGURATION
 # =========================================================
 
-st.set_page_config(
-    page_title="Brain Tumor Detection AI",
-    page_icon="🧠",
-    layout="wide"
-)
+st.set_page_config(page_title="Brain Tumor Detection AI", page_icon="🧠", layout="wide")
 
 # =========================================================
 # CUSTOM CSS
 # =========================================================
 
-st.markdown("""
-<style>
+st.markdown("""<style>.main-title { font-size: 42px; font-weight: 700; margin-bottom: 5px;}
 
-.main-title {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
+.subtitle {  font-size: 18px;   color: #666; margin-bottom: 25px;}
 
-.subtitle {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 25px;
-}
+.section-title {  font-size: 25px;  font-weight: 650;  margin-top: 20px;   margin-bottom: 12px;}
 
-.section-title {
-    font-size: 25px;
-    font-weight: 650;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
+.result-card {   padding: 22px;    border-radius: 12px;   border: 1px solid #d9e2ec;   background-color: #f8fbff;   margin-top: 10px;}
 
-.result-card {
-    padding: 22px;
-    border-radius: 12px;
-    border: 1px solid #d9e2ec;
-    background-color: #f8fbff;
-    margin-top: 10px;
-}
+.info-card {    padding: 18px;    border-radius: 12px;    border: 1px solid #e1e7ef;    background-color: #ffffff;}
 
-.info-card {
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid #e1e7ef;
-    background-color: #ffffff;
-}
-
-.small-text {
-    color: #666;
-    font-size: 14px;
-}
-
-.disclaimer {
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #fff8e6;
-    border: 1px solid #f0d98c;
-    font-size: 14px;
-}
-
-</style>
-""", unsafe_allow_html=True)
+.small-text {    color: #666;    font-size: 14px;}
+ 
+.disclaimer {   padding: 15px;    border-radius: 10px;    background-color: #fff8e6;    border: 1px solid #f0d98c;    font-size: 14px;} </style>""", unsafe_allow_html=True)
 
 
 # =========================================================
@@ -87,17 +44,9 @@ model = load_model()
 # HEADER
 # =========================================================
 
-st.markdown(
-    '<div class="main-title">🧠 Brain Tumor Detection AI</div>',
-    unsafe_allow_html=True
-)
+st.markdown( '<div class="main-title">🧠 Brain Tumor Detection AI</div>',    unsafe_allow_html=True)
 
-st.markdown(
-    '<div class="subtitle">'
-    'Deep Learning Based Brain MRI Image Classification System'
-    '</div>',
-    unsafe_allow_html=True
-)
+st.markdown( '<div class="subtitle">' 'Deep Learning Based Brain MRI Image Classification System' '</div>',    unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -134,31 +83,18 @@ with st.sidebar:
 # UPLOAD SECTION
 # =========================================================
 
-st.markdown(
-    '<div class="section-title">📤 Upload MRI Scan</div>',
-    unsafe_allow_html=True
-)
+st.markdown(  '<div class="section-title">📤 Upload MRI Scan</div>',    unsafe_allow_html=True)
 
-st.write(
-    "Upload a brain MRI image to generate an AI-based classification result."
-)
+st.write( "Upload a brain MRI image to generate an AI-based classification result.")
 
-uploaded_file = st.file_uploader(
-    "Upload Brain MRI Image",
-    type=["jpg", "jpeg", "png"]
-)
+uploaded_file = st.file_uploader( "Upload Brain MRI Image",  type=["jpg", "jpeg", "png"])
 
 
 # =========================================================
 # CLASS NAMES
 # =========================================================
 
-class_names = [
-    "glioma_tumor",
-    "meningioma_tumor",
-    "no_tumor",
-    "pituitary_tumor"
-]
+class_names = [  "glioma_tumor",    "meningioma_tumor",    "no_tumor",    "pituitary_tumor"]
 
 
 # =========================================================
@@ -170,10 +106,7 @@ if uploaded_file is not None:
     # Open image
     image = Image.open(uploaded_file).convert("RGB")
 
-    st.markdown(
-        '<div class="section-title">🖼️ MRI Scan Preview</div>',
-        unsafe_allow_html=True
-    )
+    st.markdown(  '<div class="section-title">🖼️ MRI Scan Preview</div>',       unsafe_allow_html=True   )
 
     col1, col2 = st.columns([1.2, 1])
 
@@ -183,11 +116,7 @@ if uploaded_file is not None:
 
     with col1:
 
-        st.image(
-            image,
-            caption="Uploaded MRI Image",
-            use_container_width=True
-        )
+        st.image(     image,     caption="Uploaded MRI Image",     use_container_width=True   )
 
     # -----------------------------------------------------
     # IMAGE PROCESSING
@@ -225,10 +154,7 @@ if uploaded_file is not None:
 
     with col2:
 
-        st.markdown(
-            '<div class="section-title">🔬 AI Analysis Result</div>',
-            unsafe_allow_html=True
-        )
+        st.markdown( '<div class="section-title">🔬 AI Analysis Result</div>',         unsafe_allow_html=True    )
 
         # Convert class name to professional text
 
