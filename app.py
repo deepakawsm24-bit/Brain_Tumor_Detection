@@ -4,10 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Page configuration
-st.set_page_config(
-    page_title="Brain Tumor Detection",
-    page_icon="🧠"
-)
+st.set_page_config(page_title="Brain Tumor Detection",page_icon="🧠")
 
 # Title
 st.title("🧠 Brain Tumor Detection")
@@ -17,18 +14,10 @@ st.write("Upload an MRI Brain Image to Detect Tumor")
 model = tf.keras.models.load_model("brain_tumor_model.keras")
 
 # Upload MRI Image
-uploaded_file = st.file_uploader(
-    "Upload Brain MRI Image",
-    type=["jpg", "jpeg", "png"]
-)
+uploaded_file = st.file_uploader("Upload Brain MRI Image",type=["jpg", "jpeg", "png"])
 
 # Class Names
-class_names = [
-    "glioma_tumor",
-    "meningioma_tumor",
-    "no_tumor",
-    "pituitary_tumor"
-]
+class_names = ["glioma_tumor","meningioma_tumor","no_tumor", "pituitary_tumor"]
 
 if uploaded_file is not None:
 
@@ -36,11 +25,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
 
     # Display uploaded image
-    st.image(
-        image,
-        caption="Uploaded MRI Image",
-        width="stretch"
-    )
+    st.image(image, caption="Uploaded MRI Image" )
 
     # Resize image
     img = image.resize((224, 224))
