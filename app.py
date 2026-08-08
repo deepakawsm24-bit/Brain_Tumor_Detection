@@ -12,7 +12,7 @@ model = tf.keras.models.load_model("brain_tumor_model.keras")
 st.write("Upload an MRI Brain Image to Detect Tumor")
 
 # Upload MRI Image
-uploaded_file = st.file_uploaded("Upload Brain MRI Image",type = ["jpg","jpeg","png"])
+uploaded_file = st.file_uploader("Upload Brain MRI Image",type = ["jpg","jpeg","png"])
 
 # Class Names
 class_names = ["glioma_tumor", "meningioma_tumor",  "no_tumor", "pituitary_tumor"]
