@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+from datetime import datetime
 
 # =========================================================
 # PAGE CONFIGURATION
@@ -150,6 +151,10 @@ if uploaded_file is not None:
     # Confidence
     confidence = float(np.max(probabilities)) * 100
 
+    # Analysis details
+    analysis_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
+    file_name = uploaded_file.name
+
 
     # =====================================================
     # RESULT
@@ -203,9 +208,42 @@ if uploaded_file is not None:
             min(confidence / 100, 1.0)
         )
 
-        st.caption(
-            f"Model confidence: {confidence:.2f}%"
-        )
+        st.caption(  f"Model confidence: {confidence:.2f}%")
+     
+# =====================================================
+# ANALYSIS DETAILS
+# =====================================================
+
+st.markdown("---")
+
+st.markdown( '<div class="section-title">📋 Analysis Details</div>',   unsafe_allow_html=True)
+
+detail1, detail2, detail3 = st.columns(3)
+
+with detail1:
+    st.markdown(  f"""  <div class="info-card">  <b>📄 File Name</b><br  {file_name} </div> """, unsafe_allow_html=True  )
+
+with detail2:
+    st.markdown(
+        f"""
+        <div class="info-card">
+        <b>🕐 Analysis Time</b><br>
+        {analysis_time}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+with detail3:
+    st.markdown(
+        """
+        <div class="info-card">
+        <b>🧠 Classes Analyzed</b><br>
+        4 MRI Categories
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
     # =====================================================
