@@ -253,11 +253,7 @@ if uploaded_file is not None and model_loaded:
                 unsafe_allow_html=True
             )
 
-            st.image(
-                image,
-                caption="Uploaded MRI Image",
-                use_container_width=True
-            )
+            st.image(image,caption="Uploaded MRI Image")
 
 
         # -------------------------------------------------
