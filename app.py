@@ -20,7 +20,7 @@ class_names = ["glioma_tumor", "meningioma_tumor",  "no_tumor", "pituitary_tumor
 if uploaded_file is not None:
   image = Image.open(uploaded_file)
   st.image(image,caption = "Uploaded MRI Image", use_container_width=True)
-  img = image.resize(224,224))
+  img = image.resize((224,224))
   img = np.array(img)/255.0
   img = np.expand_dims(img,axis=0)
   prediction = model.predict(img)
