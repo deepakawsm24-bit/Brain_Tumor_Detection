@@ -174,13 +174,19 @@ st.write(f"Confidence: {confidence:.2f}%")
 
 with col2:
 
-       st.markdown( '<div class="section-title">🔬 AI Analysis Result</div>',         unsafe_allow_html=True    )
+    st.markdown('<div class="section-title">🔬 AI Analysis Result</div>',
+                unsafe_allow_html=True)
 
-        # Convert class name to professional text
+    # Convert class name to professional text
 
-          display_names = { "glioma_tumor": "Glioma Tumor",  "meningioma_tumor": "Meningioma Tumor",  "no_tumor": "No Tumor",   "pituitary_tumor": "Pituitary Tumor"    }
+    display_names = {
+        "glioma_tumor": "Glioma Tumor",
+        "meningioma_tumor": "Meningioma Tumor",
+        "no_tumor": "No Tumor",
+        "pituitary_tumor": "Pituitary Tumor"
+    }
 
-        result_name = display_names[predicted_class]
+result_name = display_names[predicted_class]
 
         if predicted_class == "no_tumor":
 
