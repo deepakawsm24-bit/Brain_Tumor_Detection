@@ -151,6 +151,23 @@ if uploaded_file is not None:
     # Confidence
     confidence = float(np.max(probabilities)) * 100
 
+    # Prediction Probability Analysis
+st.subheader("📊 Prediction Probability Analysis")
+
+probabilities = np.squeeze(prediction)
+
+for class_name, probability in zip(class_names, probabilities):
+    percentage = float(probability) * 100
+    
+    st.write(f"**{class_name.replace('_', ' ').title()} — {percentage:.2f}%**")
+    st.progress(int(percentage))
+
+    # Display result
+    st.success(f"Prediction:
+    {predicted1-class}")
+    st.write(f"Confidence:
+    {confidence:.2f}%")
+
     # Analysis details
     analysis_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
     file_name = uploaded_file.name
