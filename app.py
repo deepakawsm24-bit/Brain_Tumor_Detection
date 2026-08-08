@@ -178,7 +178,7 @@ with col2:
 
         # Convert class name to professional text
 
-        display_names = {
+          display_names = {
             "glioma_tumor": "Glioma Tumor",
             "meningioma_tumor": "Meningioma Tumor",
             "no_tumor": "No Tumor",
