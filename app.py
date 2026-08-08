@@ -87,9 +87,7 @@ st.markdown(  '<div class="section-title">📤 Upload MRI Scan</div>',    unsafe
 
 st.write( "Upload a brain MRI image to generate an AI-based classification result.")
 
-if  "uploader_key" not in 
-st.session_state:
- st.session_state.uploader_key = 0
+if  "uploader_key" not in st.session_state: st.session_state.uploader_key = 0
 
 uploaded_file = st.file_uploader( "Upload Brain MRI Image",  type=["jpg", "jpeg", "png"],
                                 key =f"uploader_{st.session_state.uploader_key}")
