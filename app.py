@@ -172,9 +172,9 @@ st.write(f"Confidence: {confidence:.2f}%")
     # RESULT
     # =====================================================
 
-    with col2:
+  with col2:
 
-        st.markdown( '<div class="section-title">🔬 AI Analysis Result</div>',         unsafe_allow_html=True    )
+       st.markdown( '<div class="section-title">🔬 AI Analysis Result</div>',         unsafe_allow_html=True    )
 
         # Convert class name to professional text
 
