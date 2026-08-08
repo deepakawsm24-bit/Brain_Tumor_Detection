@@ -116,7 +116,7 @@ if uploaded_file is not None:
 
     with col1:
 
-        st.image(     image,     caption="Uploaded MRI Image",     use_container_width=True   )
+        st.image(     image,     caption="Uploaded MRI Image"  )
 
     # -----------------------------------------------------
     # IMAGE PROCESSING
