@@ -163,10 +163,8 @@ for class_name, probability in zip(class_names, probabilities):
     st.progress(int(percentage))
 
     # Display result
-    st.success(f"Prediction:
-    {predicted1-class}")
-    st.write(f"Confidence:
-    {confidence:.2f}%")
+    st.success(f" Prediction:{predicted1_class}")
+    st.write(f"Confidence: {confidence:.2f}%")
 
     # Analysis details
     analysis_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
